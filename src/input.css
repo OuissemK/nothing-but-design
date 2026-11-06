@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+@theme {
+    --color-bg: #cdf48f;
+
+    --font-primary: "DM Sans", sans-serif;
+    --font-secondary: "Space Grotesk", sans-serif;
+
+    --animate-marquee:
+        marquee 20s linear infinite;
+
+    @keyframes marquee {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
+    }
+}
+
+.nav__btn, .hero__btn, .site__logo {
+    @apply rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-950;
+}
+
+.nav__btn {
+    @apply flex justify-center items-center w-14 h-14;
+
+    @variant xl {
+        @apply w-20 h-20;
+    }
+}
+
+.nav__item {
+    @apply font-secondary font-normal bg-white rounded-full transition-[scale] scale-100 duration-700;
+
+    @variant xl {
+        @apply font-light;
+    }
+
+    @variant xl:hover {
+        @apply bg-green-950 text-white scale-105;
+    }
+}
+
+.hero__btn {
+    @apply font-secondary font-normal w-20 h-20 border border-solid rounded-full flex justify-center items-center transition-[scale] scale-100 duration-700;
+
+    @variant xl {
+        @apply font-light;
+    }
+
+    @variant xl:hover {
+        @apply bg-green-950 text-white border-none scale-105;
+    }
+}
+
+.eye {
+    @apply relative bg-linear-to-tr from-gray-400 to-white w-35 h-65  rounded-full;
+
+    @variant xl {
+        @apply xl:w-50 xl:h-90;
+    }
+}
+
+.eye__pupil {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-linear-to-tr from-black to-green-950 w-28 h-48 rounded-full;
+
+    @variant xl {
+        @apply xl:w-40 xl:h-60;
+    }
+}
+
+.eye__highlight {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white w-7 h-7 rounded-full;
+
+    @variant xl {
+        @apply xl: w-10 xl: h-10;
+    }
+}
+
+.marquee__text {
+    @apply inline-flex whitespace-nowrap items-center shrink-0 font-primary font-medium text-5xl;
+
+    @variant xl {
+        @apply font-semibold text-9xl;
+    }
+}
+
+.project__item {
+    @apply flex justify-between items-end border-b border-black pb-2 cursor-pointer min-h-22 relative focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-green-950;
+
+    @variant xl:hover {
+        & .project__indicator {
+            @apply w-8 opacity-100;
+        }
+
+        & .project__content {
+            @apply gap-2;
+        }
+
+        & .project__cta {
+            @apply opacity-0 scale-0;
+        }
+
+        & .project__img {
+            @apply flex opacity-100;
+        }
+    }
+}
+
+.project__content {
+    @apply flex items-center gap-4 transition-[gap] duration-300;
+
+    @variant xl {
+        @apply gap-0;
+    }
+}
+
+.project__indicator {
+    @apply flex w-8 h-8 transition-none;
+
+    @variant xl {
+        @apply w-0 opacity-0 transition-[width,opacity] duration-300 overflow-hidden;
+    }
+}
+
+.project__title {
+    @apply font-normal font-secondary text-xl;
+
+    @variant xl {
+        @apply font-light text-2xl;
+    }
+}
+
+.project__cta {
+    @apply hidden;
+
+    @variant xl {
+        @apply flex opacity-100 overflow-hidden transition-[scale,opacity] duration-300 scale-100 origin-right;
+    }
+}
+
+.project__img {
+    @apply hidden absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-100 opacity-0 transition-opacity duration-300;
+}
+
+.achivements__item {
+    @apply grid grid-cols-[1fr_auto] items-end border-b border-black pb-2 min-h-20 font-secondary font-normal text-xl;
+
+    @variant xl {
+        @apply text-2xl font-light grid-cols-3;
+    }
+}
+
+.achivements__item-wrapper {
+    @apply flex flex-col whitespace-nowrap;
+
+    @variant xl {
+        @apply contents;
+    }
+}
+
+.achivements__number {
+    @apply text-right;
+}
+
+.softwares__img {
+    @apply w-12 h-12;
+
+    @variant xl {
+        @apply w-14 h-14;
+    }
+}
+
+.footer__item {
+    @apply font-secondary font-normal border border-white rounded-full transition-[scale] scale-100 duration-700;
+
+    @variant xl {
+        @apply font-light;
+    }
+
+    @variant xl:hover {
+        @apply bg-white scale-105 border-transparent;
+
+        & .footer__btn {
+            @apply text-black;
+        }
+    }
+}
+
+.footer__btn {
+    @apply flex justify-center items-center w-14 h-14 text-white rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white;
+
+    @variant xl {
+        @apply w-20 h-20;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce){
+    .nav__item,
+    .hero__btn,
+    .project__content,
+    .project__indicator,
+    .project__cta,
+    .project__img,
+    .footer__item {
+        @apply transition-none;
+    }
+}
