@@ -1,4 +1,4 @@
-user-agent:*
-allow:/
+User-agent: *
+Allow: /
 
-sitemap: https://nbd.fr/sitemap.xml
+Sitemap: https://ouissemk.github.io/nothing-but-design/sitemap.xml
